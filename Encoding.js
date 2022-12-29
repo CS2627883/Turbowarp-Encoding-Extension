@@ -22,7 +22,7 @@ class EncodingExtension {
                 blockType: Scratch.BlockType.COMMAND,
                 text: 'Decode [ENCODED] back to text',
                 arguments: {
-                    DATA: {
+                    ENCODED: {
                         type: Scratch.ArgumentType.STRING,
                         defaultValue: '000072000101000108000108000111000033' //Encoded "Hello!"
                     }
