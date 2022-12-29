@@ -62,9 +62,6 @@ class EncodingExtension {
         for (let i = 0; i < encodedchars.length; i++) {
             // Get character from char code
             var decodedchar = String.fromCharCode(encodedchars[i]);
-            // TEST
-            console.log(encodedchars[i]);
-            console.log(decodedchar);
             decoded += decodedchar;
         }
         this.decoded =  decoded;
@@ -78,11 +75,12 @@ class EncodingExtension {
 }
 
 // Test Code
-//encoding = new EncodingExtension();
-//encoding.Encode({"DATA": 'Hello!'});
-//console.log(encoding.GetEncoded())
-//encoding.Decode({"ENCODED": encoding.GetEncoded()});
-//console.log(encoding.GetDecoded());
-
+/*
+encoding = new EncodingExtension();
+encoding.Encode({"DATA": 'Hello!'});
+console.log(encoding.GetEncoded())
+encoding.Decode({"ENCODED": encoding.GetEncoded()});
+console.log(encoding.GetDecoded());
+*/
 
 Scratch.extensions.register(new EncodingExtension());
