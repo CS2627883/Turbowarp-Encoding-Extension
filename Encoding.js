@@ -24,7 +24,7 @@ class EncodingExtension {
                 arguments: {
                     DATA: {
                         type: Scratch.ArgumentType.STRING,
-                        defaultValue: '{encodedhellohere}'
+                        defaultValue: '000072000101000108000108000111000033' //Encoded "Hello!"
                     }
                 }
             },
@@ -44,20 +44,19 @@ class EncodingExtension {
         const toencode = String(args.DATA);
         var encoded = "";
         for (var i = 0; i < toencode.length; ++i) {
-            encodedchar = toencode.charCodeAt(i);
-            for (var _ = 0; this.maxcharlength - encodedchar.length ; ++_) {
-                encodedchar = "0" + encodedchar;
-            }
+            var encodedchar = String(toencode.charCodeAt(i));
+            // Pad encodedchar with 0s to ensure all encodedchars are the same length
+            encodedchar = "0".repeat(this.maxcharlength - encodedchar.length) + encodedchar;
+            encoded += encodedchar;
         }
-        encoded += encodedchar;
         this.encoded = encoded;
     }
     Decode(args) {
         const todecode = String(args.DATA);
         var decoded = "";
-        const regex = new RegexExp('.{1,' + this.maxcharlength + '}');
+        const regex = new RegExp('.{1,' + this.maxcharlength + '}');
         for (encodedchar in todecode.match(regex)) {
-            decodedchar = String.fromCharCode(encodedchar);
+            var decodedchar = String.fromCharCode(encodedchar);
             decoded += decodedchar;
         }
         this.decoded =  decoded;
@@ -70,4 +69,10 @@ class EncodingExtension {
     }
 }
 
-    Scratch.extensions.register(new EncodingExtension());
+// Test Code
+//encoding = new EncodingExtension();
+//encoding.Encode({"DATA": 'Hello!'});
+//console.log(encoding.GetEncoded())
+
+
+Scratch.extensions.register(new EncodingExtension());
