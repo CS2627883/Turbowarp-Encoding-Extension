@@ -1,4 +1,4 @@
-/*class EncodingExtension {
+class EncodingExtension {
     maxcharlength = 6; // There are 149,186 unicode characters, so the maximum character code length is 6
     encoded = 0;
     decoded = 0;
@@ -73,7 +73,7 @@
         return this.decoded;
     }
 }
-*/
+
 // Test Code
 /*
 encoding = new EncodingExtension();
@@ -83,4 +83,4 @@ encoding.Decode({"ENCODED": encoding.GetEncoded()});
 console.log(encoding.GetDecoded());
 */
 
-//Scratch.extensions.register(new EncodingExtension());
+Scratch.extensions.register(new EncodingExtension());
