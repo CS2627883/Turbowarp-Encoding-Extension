@@ -55,7 +55,7 @@ class EncodingExtension {
         const todecode = String(args.DATA);
         var decoded = "";
         const regex = new RegExp('.{1,' + this.maxcharlength + '}');
-        for (encodedchar in todecode.match(regex)) {
+        for (var encodedchar in todecode.match(regex)) {
             var decodedchar = String.fromCharCode(encodedchar);
             decoded += decodedchar;
         }
