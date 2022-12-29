@@ -1,5 +1,5 @@
 class EncodingExtension {
-    maxcharlength = 6;
+    maxcharlength = 6; // There are 149,186 unicode characters, so the maximum character code length is 6
     encoded = 0;
     decoded = 0;
     getInfo() {
@@ -43,7 +43,8 @@ class EncodingExtension {
     Encode(args) {
         const toencode = String(args.DATA);
         var encoded = "";
-        for (var i = 0; i < toencode.length; ++i) {
+        for (let i = 0; i < toencode.length; ++i) {
+            // Get char code of character
             var encodedchar = String(toencode.charCodeAt(i));
             // Pad encodedchar with 0s to ensure all encodedchars are the same length
             encodedchar = "0".repeat(this.maxcharlength - encodedchar.length) + encodedchar;
@@ -52,11 +53,15 @@ class EncodingExtension {
         this.encoded = encoded;
     }
     Decode(args) {
-        const todecode = String(args.DATA);
+        const todecode = String(args.ENCODED);
         var decoded = "";
-        const regex = new RegExp('.{1,' + this.maxcharlength + '}');
-        for (var encodedchar in todecode.match(regex)) {
-            var decodedchar = String.fromCharCode(encodedchar);
+        // Create regex to split by char length
+        const regex = new RegExp('.{1,' + this.maxcharlength + '}', 'g');
+        // Split into array of characters
+        var encodedchars = todecode.match(regex)
+        for (let i = 0; i < encodedchars.length; i++) {
+            // Get character from char code
+            var decodedchar = String.fromCharCode(encodedchars[i]);
             decoded += decodedchar;
         }
         this.decoded =  decoded;
@@ -73,6 +78,8 @@ class EncodingExtension {
 //encoding = new EncodingExtension();
 //encoding.Encode({"DATA": 'Hello!'});
 //console.log(encoding.GetEncoded())
+//encoding.Decode({"ENCODED": encoding.GetEncoded()});
+//console.log(encoding.GetDecoded());
 
 
 Scratch.extensions.register(new EncodingExtension());
