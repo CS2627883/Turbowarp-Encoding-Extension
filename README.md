@@ -15,7 +15,7 @@ One of these limitations is case-sensitivity - while this is possible, the only 
 
 Another limitation is that Scratch does not allow you to convert between characters and their numerical representations. If you want to do this, you must create your own character index. This means that all characters have to be manually implemented. While mashing your keyboard for 5 minutes doesn't sound too bad, what if someone wants to use emojis, or characters from another language?
 
-This extension bypasses both of these limitations. Javascript is case-sensitive, and has `charCodeAt` and `fromCharCode` methods. This extension supports all 149,186 unicode characters.
+This extension bypasses both of these limitations. It is case-sensitive, and utilizes Javascript's `charCodeAt` and `fromCharCode` methods. This extension supports all 149,186 unicode characters.
 
 # How to use
 If you do not know what turbowarp extensions are or how to use them, check out the [Official Docs](https://docs.turbowarp.org/development/custom-extensions)
