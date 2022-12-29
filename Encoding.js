@@ -62,6 +62,9 @@ class EncodingExtension {
         for (let i = 0; i < encodedchars.length; i++) {
             // Get character from char code
             var decodedchar = String.fromCharCode(encodedchars[i]);
+            // TEST
+            console.log(encodedchars[i]);
+            console.log(decodedchar);
             decoded += decodedchar;
         }
         this.decoded =  decoded;
