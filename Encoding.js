@@ -70,4 +70,4 @@ class EncodingExtension {
     }
 }
 
-    Scratch.extensions.register(new ClipboardExtension());
+    Scratch.extensions.register(new EncodingExtension());
