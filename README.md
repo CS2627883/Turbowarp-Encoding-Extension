@@ -3,7 +3,9 @@ Turbowarp extension that adds encode and decode blocks, allowing you to easily s
 
 # Details
 This is a sandboxed extension.
+
 It adds 2 command blocks: Encode` and `Decode`.
+
 Each command block has a respective reporter block: `encoded` and `decoded`
 
 # Why is this useful?
