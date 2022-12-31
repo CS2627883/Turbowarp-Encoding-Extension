@@ -56,6 +56,10 @@
     }
     Decode(args) {
         const todecode = String(args.ENCODED);
+        if (todecode == "") {
+            this.decoded =  "";
+            return;
+        }
         var decoded = "";
         // Create regex to split by char length
         const regex = new RegExp('.{1,' + this.maxcharlength + '}', 'g');
