@@ -54,6 +54,10 @@ class EncodingExtension {
     }
     Decode(args) {
         const todecode = String(args.ENCODED);
+        if (todecode == "") {
+            this.decoded =  "";
+            return;
+        }
         var decoded = "";
         // Create regex to split by char length
         const regex = new RegExp('.{1,' + this.maxcharlength + '}', 'g');
@@ -80,6 +84,8 @@ encoding = new EncodingExtension();
 encoding.Encode({"DATA": 'Hello!'});
 console.log(encoding.GetEncoded())
 encoding.Decode({"ENCODED": encoding.GetEncoded()});
+console.log(encoding.GetDecoded());
+encoding.Decode({"ENCODED": ""});
 console.log(encoding.GetDecoded());
 */
 
